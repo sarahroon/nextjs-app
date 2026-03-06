@@ -1,91 +1,62 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState } from "react";
 
 export default function Home() {
-  useEffect(() => {
-    // Log browser document
-    console.log(document.title);
+  const [sortOrder, setSortOrder] = useState("desc");
 
-    // Create sort dropdown
-    const sortLabel = document.createElement("label");
-    sortLabel.textContent = "Sort posts: ";
+  const posts = [
+    {
+      title: "Snakes",
+      date: "2024-06-10",
+      content:
+        "My post about my favourite types of snakes: King Cobra from India, Black Mamba from Africa and Green Anaconda from South America.",
+      link: "/snakes",
+    },
+    {
+      title: "Dogs",
+      date: "2024-06-12",
+      content:
+        "My post about my favourite types of dogs: Pomeranian from Poland and Germany, King Charles Spaniel from England and Golden Retriever from Scotland.",
+      link: "/dogs",
+    },
+    {
+      title: "Cats",
+      date: "2024-06-08",
+      content:
+        "My post about my favourite types of cats: Maine Coon from USA, Sphynx from Canada and Siamese from Thailand.",
+      link: "/cats",
+    },
+  ];
 
-    const sortSelect = document.createElement("select");
-    sortSelect.id = "sortPosts";
+  // Sort posts
+  const sortedPosts = [...posts].sort((a, b) => {
+    return sortOrder === "asc"
+      ? new Date(a.date) - new Date(b.date)
+      : new Date(b.date) - new Date(a.date);
+  });
 
-    const newestOption = document.createElement("option");
-    newestOption.value = "desc";
-    newestOption.textContent = "Newest first";
+  return (
+    <div>
+      <h1>My Blog Posts About My Favourite Animals</h1>
 
-    const oldestOption = document.createElement("option");
-    oldestOption.value = "asc";
-    oldestOption.textContent = "Oldest first";
+      <label>Sort posts: </label>
+      <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
+        <option value="desc">Newest first</option>
+        <option value="asc">Oldest first</option>
+      </select>
 
-    sortSelect.appendChild(newestOption);
-    sortSelect.appendChild(oldestOption);
-
-    // Create posts container
-    const postsContainer = document.createElement("div");
-    postsContainer.id = "posts";
-
-    // Add elements to page
-    document.body.appendChild(sortLabel);
-    document.body.appendChild(sortSelect);
-    document.body.appendChild(postsContainer);
-
-    // Example posts
-    const posts = [
-      {
-        title: "Snakes",
-        date: "2024-06-10",
-        content:
-          "My post about my favourite types of snakes King Cobra from India, Black Mamba from Africa and Green Anaconda from South America.",
-      },
-      {
-        title: "Dogs",
-        date: "2024-06-12",
-        content:
-          "My post about my favourite types of dogs Pomeranian from Poland and Germany, King Charles Spaniel from England and Golden Retriever from Scotland.",
-      },
-      {
-        title: "Cats",
-        date: "2024-06-08",
-        content:
-          "My post about my favourite types of cats Maine Coon from United States of America, Sphynx from Canada and Siamese from Thailand.",
-      },
-    ];
-
-    // Function to display posts
-    function displayPosts(order = "desc") {
-      const sortedPosts = [...posts].sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return order === "asc" ? dateA - dateB : dateB - dateA;
-      });
-
-      postsContainer.innerHTML = "";
-
-      sortedPosts.forEach((post) => {
-        const postDiv = document.createElement("div");
-        postDiv.innerHTML = `
-          <h3>${post.title}</h3>
-          <small>${post.date}</small>
-          <p>${post.content}</p>
-          <hr>
-        `;
-        postsContainer.appendChild(postDiv);
-      });
-    }
-
-    // Sort event
-    sortSelect.addEventListener("change", (e) => {
-      displayPosts(e.target.value);
-    });
-
-    // Show posts on load
-    displayPosts("desc");
-  }, []); // Empty dependency array => runs only in browser
-
-  return <div>My Blog Posts About My Favourite Animals</div>;
+      <div id="posts">
+        {sortedPosts.map((post) => (
+          <div key={post.title} className="post">
+            <h3>{post.title}</h3>
+            <small>{post.date}</small>
+            <p>{post.content}</p>
+            <a href={post.link}>Read more</a>
+            <hr />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
