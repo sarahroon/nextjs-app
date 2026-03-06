@@ -39,17 +39,20 @@ export default function Home() {
       {
         title: "Snakes",
         date: "2024-06-10",
-        content: "My post about my favourite types of snakes.",
+        content:
+          "My post about my favourite types of snakes King Cobra from India, Black Mamba from Africa and Green Anaconda from South America.",
       },
       {
         title: "Dogs",
         date: "2024-06-12",
-        content: "My post about my favourite types of dogs.",
+        content:
+          "My post about my favourite types of dogs Pomeranian from Poland and Germany, King Charles Spaniel from England and Golden Retriever from Scotland.",
       },
       {
         title: "Cats",
         date: "2024-06-08",
-        content: "My post about my favourite types of cats.",
+        content:
+          "My post about my favourite types of cats Maine Coon from United States of America, Sphynx from Canada and Siamese from Thailand.",
       },
     ];
 
