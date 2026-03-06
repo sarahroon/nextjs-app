@@ -38,6 +38,11 @@ export default function Post({ post }) {
       <h3>Leave a Comment</h3>
       <CommentForm onAddComment={handleAddComment} />
 
+      {/* Jump link */}
+      <p style={{ marginTop: "1rem" }}>
+        <a href="#comment-form">Jump to comment form</a>
+      </p>
+
       {/* Link to scroll to comment form */}
       <p style={{ marginTop: "1rem" }}>
         <a href="#comment-form">Jump to comment form</a>
