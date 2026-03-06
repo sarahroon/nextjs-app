@@ -15,7 +15,11 @@ export default function Home() {
 
   return (
     <div>
-      <h1>Blog Posts</h1>
+      <h1>Blog Posts Forms</h1>
+      <p>
+        Welcome to my website where you can post comments about your favourite
+        animals and where they are from.{" "}
+      </p>
       {posts.map((post) => (
         <div key={post.post_id}>
           <h2>{post.title}</h2>
