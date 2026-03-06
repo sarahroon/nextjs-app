@@ -65,11 +65,18 @@ export default function Home() {
           <h1>{selectedPost.title}</h1>
           <p>{selectedPost.content}</p>
 
+          {/* Jump link */}
+          <p style={{ marginTop: "1rem" }}>
+            <a href="#comment-form">Jump to comment form</a>
+          </p>
+
           <h2>Comments</h2>
           <CommentList comments={comments} />
 
           <h3>Leave a Comment</h3>
-          <CommentForm id="comment-form" onAddComment={addComment} />
+          <div id="comment-form">
+            <CommentForm onAddComment={addComment} />
+          </div>
         </div>
       )}
     </div>
