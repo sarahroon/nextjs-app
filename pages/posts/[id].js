@@ -5,8 +5,18 @@ import CommentForm from "../../components/CommentForm";
 import CommentList from "../../components/CommentList";
 
 const posts = [
-  { id: 1, title: "My First Post About Snakes", content: "snake" },
-  { id: 2, title: "What snakes can do", content: "Things snakes can do" },
+  {
+    id: 1,
+    title: "Write a Post About Your Favourite Animal",
+    content:
+      "Here you can submit your name and post a comment about your favourite animal",
+  },
+  {
+    id: 2,
+    title: "Where Your Favourite Animal Is Originally From",
+    content:
+      "Here you can submit your name and post a comment about where your favourite animal is from",
+  },
 ];
 
 export default function Post({ post }) {
