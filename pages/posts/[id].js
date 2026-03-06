@@ -1,6 +1,5 @@
 // Post Page
 
-// pages/posts/[id].js
 import { useState } from "react";
 import CommentForm from "../../components/CommentForm";
 import CommentList from "../../components/CommentList";
