@@ -1,5 +1,3 @@
-// Form for users to submit comments
-
 import { useState } from "react";
 
 export default function CommentForm({ onAddComment }) {

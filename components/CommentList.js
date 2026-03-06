@@ -1,5 +1,3 @@
-// List which displays comments
-
 export default function CommentList({ comments }) {
   if (!comments.length) return <p>No comments yet.</p>;
 
