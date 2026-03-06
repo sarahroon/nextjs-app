@@ -39,6 +39,7 @@ export default function CommentForm({ id, onAddComment }) {
       <button type="submit" style={{ marginTop: "0.5rem" }}>
         Submit
       </button>
+      <p style={{ color: "red" }}>DEBUG: This should be visible!</p>
     </form>
   );
 }
