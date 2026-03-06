@@ -28,8 +28,8 @@ export default function Home() {
     <div style={{ padding: "2rem" }}>
       <h1>Blog Posts Forms</h1>
       <p>
-        Welcome! Click a post title to leave comments about your favourite
-        animals and where they are from.
+        Welcome! Click a form to leave comments about your favourite animals and
+        where they are from.
       </p>
 
       {/* List all posts */}
