@@ -1,84 +1,66 @@
-import { useState, useEffect } from "react";
-import { supabase } from "../lib/supabaseClient";
-import CommentForm from "../components/CommentForm";
-import CommentList from "../components/CommentList";
+// Create sort dropdown
+const sortLabel = document.createElement("label");
+sortLabel.textContent = "Sort posts: ";
 
-export default function Home() {
-  const [posts, setPosts] = useState([]);
-  const [selectedPostId, setSelectedPostId] = useState(null);
-  const [comments, setComments] = useState([]);
+const sortSelect = document.createElement("select");
+sortSelect.id = "sortPosts";
 
-  // Fetch posts from Supabase
-  useEffect(() => {
-    async function fetchPosts() {
-      const { data, error } = await supabase.from("posts").select("*");
-      if (error) console.error(error);
-      else setPosts(data);
-    }
-    fetchPosts();
-  }, []);
+const newestOption = document.createElement("option");
+newestOption.value = "desc";
+newestOption.textContent = "Newest first";
 
-  const addComment = (comment) => {
-    setComments([...comments, comment]);
-  };
+const oldestOption = document.createElement("option");
+oldestOption.value = "asc";
+oldestOption.textContent = "Oldest first";
 
-  const selectedPost = posts.find((p) => p.post_id === selectedPostId);
+sortSelect.appendChild(newestOption);
+sortSelect.appendChild(oldestOption);
 
-  return (
-    <div style={{ padding: "2rem" }}>
-      <h1>Blog Posts Forms</h1>
-      <p>
-        Welcome! Click a form to leave comments about your favourite animals and
-        where they are from.
-      </p>
+// Create posts container
+const postsContainer = document.createElement("div");
+postsContainer.id = "posts";
 
-      {/* List all posts */}
-      {posts.map((post) => (
-        <div key={post.post_id} style={{ marginBottom: "1rem" }}>
-          <h2
-            style={{ cursor: "pointer", color: "blue" }}
-            onClick={() => {
-              setSelectedPostId(post.post_id);
-              setComments([]); // reset comments when switching posts
-              // scroll to comment form
-              setTimeout(() => {
-                const el = document.getElementById("comment-form");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }, 50);
-            }}
-          >
-            {post.title}
-          </h2>
-          <p>{post.content}</p>
-        </div>
-      ))}
+// Add elements to page
+document.body.appendChild(sortLabel);
+document.body.appendChild(sortSelect);
+document.body.appendChild(postsContainer);
 
-      {/* Show selected post with comments and form */}
-      {selectedPost && (
-        <div
-          style={{
-            marginTop: "2rem",
-            borderTop: "1px solid #ccc",
-            paddingTop: "1rem",
-          }}
-        >
-          <h1>{selectedPost.title}</h1>
-          <p>{selectedPost.content}</p>
+// Example posts
+const posts = [
+  { title: "Post 1", date: "2024-06-10", content: "First post content" },
+  { title: "Post 2", date: "2024-06-12", content: "Second post content" },
+  { title: "Post 3", date: "2024-06-08", content: "Third post content" },
+];
 
-          {/* Jump link */}
-          <p style={{ marginTop: "1rem" }}>
-            <a href="form.html">Open Form</a>
-          </p>
+// Function to display posts
+function displayPosts(order = "desc") {
+  const sortedPosts = [...posts].sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
 
-          <h2>Comments</h2>
-          <CommentList comments={comments} />
+    return order === "asc" ? dateA - dateB : dateB - dateA;
+  });
 
-          <h3>Leave a Comment</h3>
-          <div id="comment-form">
-            <CommentForm onAddComment={addComment} />
-          </div>
-        </div>
-      )}
-    </div>
-  );
+  postsContainer.innerHTML = "";
+
+  sortedPosts.forEach((post) => {
+    const postDiv = document.createElement("div");
+
+    postDiv.innerHTML = `
+      <h3>${post.title}</h3>
+      <small>${post.date}</small>
+      <p>${post.content}</p>
+      <hr>
+    `;
+
+    postsContainer.appendChild(postDiv);
+  });
 }
+
+// Sort event
+sortSelect.addEventListener("change", (e) => {
+  displayPosts(e.target.value);
+});
+
+// Show posts on load
+displayPosts("desc");
