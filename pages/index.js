@@ -67,7 +67,7 @@ export default function Home() {
 
           {/* Jump link */}
           <p style={{ marginTop: "1rem" }}>
-            <a href="#comment-form">Jump to comment form</a>
+            <a href="form.html">Open Form</a>
           </p>
 
           <h2>Comments</h2>
