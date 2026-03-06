@@ -1,14 +1,12 @@
 export default function CommentList({ comments }) {
-  if (!comments.length) return <p>No comments yet.</p>;
+  if (!comments || comments.length === 0)
+    return <p>No comments yet. Be the first!</p>;
 
   return (
     <ul>
-      {comments.map((comment, index) => (
-        <li key={index}>
-          <p>
-            <strong>{comment.name}</strong> ({comment.date})
-          </p>
-          <p>{comment.text}</p>
+      {comments.map((c, i) => (
+        <li key={i}>
+          <strong>{c.name}</strong>: {c.text}
         </li>
       ))}
     </ul>
