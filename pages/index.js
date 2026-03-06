@@ -36,9 +36,21 @@ export default function Home() {
 
     // Example posts
     const posts = [
-      { title: "Post 1", date: "2024-06-10", content: "First post content" },
-      { title: "Post 2", date: "2024-06-12", content: "Second post content" },
-      { title: "Post 3", date: "2024-06-08", content: "Third post content" },
+      {
+        title: "Snakes",
+        date: "2024-06-10",
+        content: "My post about my favourite types of snakes.",
+      },
+      {
+        title: "Dogs",
+        date: "2024-06-12",
+        content: "My post about my favourite types of dogs.",
+      },
+      {
+        title: "Cats",
+        date: "2024-06-08",
+        content: "My post about my favourite types of cats.",
+      },
     ];
 
     // Function to display posts
@@ -72,5 +84,5 @@ export default function Home() {
     displayPosts("desc");
   }, []); // Empty dependency array => runs only in browser
 
-  return <div>My Forms Blog</div>;
+  return <div>My Blog Posts About My Favourite Animals</div>;
 }
