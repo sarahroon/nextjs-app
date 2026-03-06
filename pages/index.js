@@ -1,3 +1,15 @@
+"use client";
+
+import { useEffect } from "react";
+
+export default function Home() {
+  useEffect(() => {
+    console.log(document.title);
+  }, []);
+
+  return <div>My Forms Blog</div>;
+}
+
 // Create sort dropdown
 const sortLabel = document.createElement("label");
 sortLabel.textContent = "Sort posts: ";
