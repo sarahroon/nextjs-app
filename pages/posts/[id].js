@@ -2,26 +2,26 @@ import { useState } from "react";
 import CommentForm from "../../components/CommentForm";
 import CommentList from "../../components/CommentList";
 
+// Sample posts data
 const posts = [
   {
     id: 1,
     title: "Write a Post About Your Favourite Animal",
     content:
-      "Here you can submit your name and post a comment about your favourite animal",
+      "Here you can submit your name and post a comment about your favourite animal.",
   },
   {
     id: 2,
     title: "Where Your Favourite Animal Is Originally From",
     content:
-      "Here you can submit your name and post a comment about where your favourite animal is from",
+      "Here you can submit your name and post a comment about where your favourite animal is from.",
   },
 ];
 
 export default function Post({ post }) {
   const [comments, setComments] = useState([]);
 
-  // Add a new comment
-  const handleAddComment = (comment) => {
+  const addComment = (comment) => {
     setComments([...comments, comment]);
   };
 
@@ -35,18 +35,13 @@ export default function Post({ post }) {
       <h2>Comments</h2>
       <CommentList comments={comments} />
 
-      <h3>Leave a Comment</h3>
-      <CommentForm onAddComment={handleAddComment} />
-
       {/* Jump link */}
       <p style={{ marginTop: "1rem" }}>
         <a href="#comment-form">Jump to comment form</a>
       </p>
 
-      {/* Link to scroll to comment form */}
-      <p style={{ marginTop: "1rem" }}>
-        <a href="#comment-form">Jump to comment form</a>
-      </p>
+      <h3>Leave a Comment</h3>
+      <CommentForm id="comment-form" onAddComment={addComment} />
     </div>
   );
 }
@@ -57,7 +52,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false };
 }
 
-// Generate static props
+// Fetch static props
 export async function getStaticProps({ params }) {
   const post = posts.find((p) => p.id.toString() === params.id);
   return { props: { post: post || null } };
