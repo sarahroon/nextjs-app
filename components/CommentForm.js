@@ -13,7 +13,11 @@ export default function CommentForm({ id, onAddComment }) {
   };
 
   return (
-    <form id={id} onSubmit={handleSubmit} style={{ marginTop: "1rem" }}>
+    <form
+      id="comment-form"
+      onSubmit={handleSubmit}
+      style={{ marginTop: "1rem" }}
+    >
       <div>
         <label>Name:</label>
         <input
