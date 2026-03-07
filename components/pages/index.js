@@ -13,10 +13,11 @@ export default function Home() {
           marginTop: "40px",
         }}
       >
+        {/* Kayaking */}
         <div style={{ textAlign: "center" }}>
           <img
             src="/images/kayaking.jpg"
-            alt="Kayaking"
+            alt="kayaking"
             width={400}
             height={300}
             style={{ borderRadius: "12px", display: "block" }}
@@ -24,10 +25,11 @@ export default function Home() {
           <h3>Kayaking</h3>
         </div>
 
+        {/* Knitting */}
         <div style={{ textAlign: "center" }}>
           <img
             src="/images/knitting.jpg"
-            alt="Knitting"
+            alt="knitting"
             width={400}
             height={300}
             style={{ borderRadius: "12px", display: "block" }}
@@ -35,10 +37,11 @@ export default function Home() {
           <h3>Knitting</h3>
         </div>
 
+        {/* Paragliding */}
         <div style={{ textAlign: "center" }}>
           <img
             src="/images/paragliding.jpg"
-            alt="Paragliding"
+            alt="paragliding"
             width={400}
             height={300}
             style={{ borderRadius: "12px", display: "block" }}

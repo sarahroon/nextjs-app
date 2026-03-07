@@ -35,9 +35,9 @@ export default function Home() {
   return (
     <div>
       <h1>My Blog</h1>
-      <img src="/images/kayaking.jpg" alt="Kayaking" width={400} />
-      <img src="/images/knitting.jpg" alt="Knitting" width={400} />
-      <img src="/images/paragliding.jpg" alt="Paragliding" width={400} />
+      <img src="/images/kayaking.jpg" alt="kayaking" width={400} />
+      <img src="/images/knitting.jpg" alt="knitting" width={400} />
+      <img src="/images/paragliding.jpg" alt="paragliding" width={400} />
     </div>
   );
 }
