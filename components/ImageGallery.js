@@ -1,30 +1,29 @@
+// components/ImageGallery.js
 import Image from "next/image";
-import { images } from "../data/images";
-import styles from "./ImageGallery.module.css";
 
-export default function ImageGallery() {
-  const images = [
-    { src: "/images/kayaking.jpg", title: "Kayaking" },
-    { src: "/images/knitting.jpg", title: "Knitting" },
-    { src: "/images/paragliding.jpg", title: "Paragliding" },
-  ];
-
+export default function ImageGallery({ images }) {
   return (
-    <div className={styles.gallery}>
-      {images.map((img, index) => (
-        <div key={index} className={styles.card}>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "20px",
+        justifyContent: "center",
+        marginTop: "40px",
+      }}
+    >
+      {images.map((img) => (
+        <div key={img} style={{ textAlign: "center" }}>
           <Image
-            src={img.src}
-            alt={img.title}
-            width={500}
-            height={350}
-            className={styles.image}
+            src={`/images/${img}`}
+            alt={img.replace(/\.[^/.]+$/, "")} // remove extension for caption
+            width={400}
+            height={300}
+            style={{ borderRadius: "12px", display: "block" }}
           />
-          <h3>{img.title}</h3>
+          <h3>{img.replace(/\.[^/.]+$/, "")}</h3>
         </div>
       ))}
     </div>
   );
 }
-
-export default function images() {}
