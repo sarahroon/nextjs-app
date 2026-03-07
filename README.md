@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Week 8 Assignment: Creating a next.js Website Blog with Posts Expressing Interest in Activities:
 
-## Getting Started
+-	My Website link: https://nextjs-app-azure-tau.vercel.app/
 
-First, run the development server:
+-	My GitHub Repository link: https://github.com/sarahroon/nextjs-app
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+All Requirements Were Met:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+•	Users can view all posts with options to sort them in ascending or descending order so that they can easily find content based on their preferences using the options Newest first or Oldest first in the drop-down button next to “Sort posts:” 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+•	I created a SQL schema for a posts table and a comments table, with the comments being connected to the posts table with a foreign key.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+•	I created a Delete Post button on posts which allows users to delete the post from the database. Users can delete a post and when they refresh the page the posts return.
 
-## Learn More
+•	http://localhost:3000 I created a form which saves comments to a dedicated comments table, the comments are connected to the posts table with a foreign key. It’s in the folder posts then the file [postid].js in my code in my GitHub repo.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+•	Users can use the comment box to comment on individual posts in their dynamic routes. Comments are associated with the individual posts, and have a dynamic route (e.g. /posts/:postid).
+•	I added a redirect so when a user creates a post they can be redirected to the posts page. It’s in the folder pages, folder posts then the create.js file in my code in my GitHub repo.
