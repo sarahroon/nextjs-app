@@ -1,16 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CommentForm from "../components/CommentForm";
 import CommentsList from "../components/CommentsList";
 
 export default function Home() {
   const [sortOrder, setSortOrder] = useState("desc");
-  const [commentsError, setCommentsError] = useState("");
 
-  // ------------------------
-  // Blog posts data
-  // ------------------------
   const posts = [
     {
       post_id: 1,
@@ -32,63 +28,33 @@ export default function Home() {
     },
   ];
 
-  // ------------------------
-  // Sort posts
-  // ------------------------
   const sortedPosts = [...posts].sort((a, b) => {
     return sortOrder === "asc" ? a.post_id - b.post_id : b.post_id - a.post_id;
   });
-
-  // ------------------------
-  // Optional: prefetch comments (mock safe)
-  // ------------------------
-  useEffect(() => {
-    async function checkComments() {
-      try {
-        // Attempt a safe fetch for comments for Post 1 as example
-        const res = await fetch("/api/comments?postId=1");
-        const contentType = res.headers.get("content-type");
-        if (!contentType || !contentType.includes("application/json")) {
-          console.warn("Comments API did not return JSON:", await res.text());
-          return;
-        }
-        await res.json(); // discard, just check availability
-      } catch (err) {
-        console.error("Comments API not available:", err);
-        setCommentsError("Comments API not available");
-      }
-    }
-    // Disabled for now to avoid Postgres errors
-    // checkComments();
-  }, []);
 
   return (
     <div style={{ padding: "1rem", fontFamily: "sans-serif" }}>
       <h1>Blog Posts Expressing Interest in Activities</h1>
 
-      <label htmlFor="sortPosts">Sort posts: </label>
-      <select
-        id="sortPosts"
-        value={sortOrder}
-        onChange={(e) => setSortOrder(e.target.value)}
-      >
+      <label>Sort posts: </label>
+      <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
         <option value="desc">Newest first</option>
         <option value="asc">Oldest first</option>
       </select>
 
-      {commentsError && <p style={{ color: "red" }}>{commentsError}</p>}
-
-      <div id="posts">
+      <div id="posts" style={{ marginTop: "2rem" }}>
         {sortedPosts.map((post) => (
           <div key={post.post_id} className="post" style={{ margin: "2rem 0" }}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
 
-            {/* Comment form and list */}
+            {/* Comment Form */}
             <CommentForm postId={post.post_id} />
+
+            {/* Comments List */}
             <CommentsList postId={post.post_id} />
 
-            <hr />
+            <hr style={{ marginTop: "2rem" }} />
           </div>
         ))}
       </div>
