@@ -10,21 +10,21 @@ export default function Home() {
   const posts = [
     {
       post_id: 1,
-      title: "Snakes",
+      title: "Paragliding",
       content:
-        "My favourite snakes: King Cobra (India), Black Mamba (Africa), Green Anaconda (South America)",
+        "Post your name, your email and comment if you are interested in Paragliding. Paragliding is a sport where you move through the sky using a paraglider taking place in hills or mountains over thermal currents ridge lifts and wind. It's actually a lot safer than people may think under supervision. I have experience of paragliding in Costa Rica which I found thoroughly enjoyable.",
     },
     {
       post_id: 2,
-      title: "Dogs",
+      title: "Kayaking",
       content:
-        "My favourite dogs: Pomeranian (Poland/Germany), King Charles Spaniel (England), Golden Retriever (Scotland)",
+        "Post your name, your email and comment if you are interested in Kayaking. Kayaking is a water sport where you use a paddle and kayak which is a small narrow boat with a closed top to move over water sitting facing forward in the kayak taking place in rivers, lakes and oceans. It is a tranquil sport and good for beginners. I have experience of kayaking in Costa Rica which I found thoroughly enjoyable.",
     },
     {
       post_id: 3,
-      title: "Cats",
+      title: "Knitting",
       content:
-        "My favourite cats: Maine Coon (USA), Sphynx (Canada), Siamese (Thailand)",
+        "Post your name, your email and comment if you are interested in knitting. Knitting is a fiber technique for producing clothing pieces using lots of different types and colours of wool to produce stretchy and flexible fabric. I have knitted multiple jumpers, scarves and cardigans it is thoroughly enjoyable and peaceful.",
     },
   ];
 
@@ -36,7 +36,7 @@ export default function Home() {
 
   return (
     <div style={{ padding: "1rem" }}>
-      <h1>My Blog Posts About My Favourite Animals</h1>
+      <h1>Blog Posts Expressing Interest in Activities</h1>
 
       <label>Sort posts: </label>
       <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
