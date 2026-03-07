@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function Home() {
   const [sortOrder, setSortOrder] = useState("desc");
 
-  const posts = [
+  const [posts, setPosts] = useState([
     {
       title: "Snakes",
       date: "2024-06-10",
@@ -27,7 +27,13 @@ export default function Home() {
         "My post about my favourite types of cats: Maine Coon from USA, Sphynx from Canada and Siamese from Thailand.",
       link: "/cats",
     },
-  ];
+  ]);
+
+  // Delete function
+  function deletePost(title) {
+    const updatedPosts = posts.filter((post) => post.title !== title);
+    setPosts(updatedPosts);
+  }
 
   // Sort posts
   const sortedPosts = [...posts].sort((a, b) => {
@@ -52,7 +58,13 @@ export default function Home() {
             <h3>{post.title}</h3>
             <small>{post.date}</small>
             <p>{post.content}</p>
+
             <a href={post.link}>Read more</a>
+
+            <br />
+
+            <button onClick={() => deletePost(post.title)}>Delete Post</button>
+
             <hr />
           </div>
         ))}
