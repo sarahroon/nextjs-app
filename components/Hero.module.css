@@ -1,0 +1,299 @@
+/* Heading and paragraph hover effects */
+.hero p {
+  display: inline-block; /* ensures transform works correctly */
+  transition:
+    transform 0.3s ease,
+    text-shadow 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Hover effect: tiny lift + soft glow */
+.hero h1:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.hero p:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Floating shapes container */
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Shape 1 */
+.hero::before {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 10%;
+  animation: floatShape1 12s ease-in-out infinite;
+}
+
+/* Shape 2 */
+.hero::after {
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  right: 15%;
+  animation: floatShape2 15s ease-in-out infinite;
+}
+
+/* Floating animations */
+@keyframes floatShape1 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) translateX(15px) rotate(45deg);
+  }
+}
+
+@keyframes floatShape2 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(15px) translateX(-10px) rotate(-30deg);
+  }
+}
+
+/* Ensure content is above shapes */
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero section styles */
+.hero {
+  position: relative;
+  padding: 120px 20px 80px;
+  text-align: center;
+  background: linear-gradient(135deg, #4caf50, #81c784);
+  overflow: hidden;
+}
+
+.hero h1,
+.hero p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease,
+    transform 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+.hero h1:hover {
+  transform: translateY(-3px);
+  text-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+.hero p:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+.hero h1.visible,
+.hero p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero button */
+.hero button {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: white;
+  color: #4caf50;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    all 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero button.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.hero button:hover {
+  transform: scale(1.05);
+  background-color: #d4ffd4;
+  color: #2e7d32;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button shimmer */
+.hero button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  pointer-events: none;
+  animation: shimmerCTA 2.5s infinite;
+}
+
+@keyframes shimmerCTA {
+  0% {
+    left: -75%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: -75%;
+  }
+}
+
+/* Floating background shapes */
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 0;
+  pointer-events: none;
+}
+.hero::before {
+  width: 150px;
+  height: 150px;
+  top: 20%;
+  left: 10%;
+  animation: floatShape1 12s ease-in-out infinite;
+}
+.hero::after {
+  width: 100px;
+  height: 100px;
+  bottom: 15%;
+  right: 15%;
+  animation: floatShape2 15s ease-in-out infinite;
+}
+
+@keyframes floatShape1 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) translateX(15px) rotate(45deg);
+  }
+}
+@keyframes floatShape2 {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(15px) translateX(-10px) rotate(-30deg);
+  }
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero CTA button shimmer overlay */
+.hero button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer pseudo-element */
+.hero button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: none;
+  pointer-events: none;
+  animation: shimmerCTA 2.5s infinite;
+}
+
+/* Shimmer keyframes */
+@keyframes shimmerCTA {
+  0% {
+    left: -75%;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: -75%;
+  }
+}
+
+/* Keep previous hover effect */
+.hero button:hover {
+  transform: scale(1.05);
+  background-color: #d4ffd4;
+  color: #2e7d32;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Button visible on scroll */
+.hero button.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Staggered fade-in animation */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.fadeUp.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

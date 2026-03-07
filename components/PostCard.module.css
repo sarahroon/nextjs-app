@@ -1,0 +1,241 @@
+/* Card styles */
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--card-shadow);
+  padding: 20px;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image wrapper with scroll & hover effects */
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+.imageWrapper.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.3s ease,
+    filter 0.5s ease;
+  transform-style: preserve-3d;
+}
+.card:hover .imageWrapper img {
+  transform: scale(1.05) translateY(-5px);
+  filter: brightness(1.1);
+}
+
+/* Title shimmer hover */
+.title {
+  color: var(--primary);
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+.card:hover .title::after {
+  left: 100%;
+}
+.title::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.5s ease;
+}
+
+/* Excerpt */
+.excerpt {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Read More button */
+.readMore {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    all 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+.readMore:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(255, 255, 255, 0.2);
+}
+.readMore::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-25deg) translateX(0);
+  transition: transform 0.7s ease;
+}
+.readMore:hover::after {
+  transform: skewX(-25deg) translateX(50%);
+}
+
+/* Floating animation on hover */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(-5px) scale(1.03);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.03);
+  }
+}
+
+.excerpt {
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Read More button base style (keep previous) */
+.readMore {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  transition:
+    all 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect: slide + glow */
+.readMore:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: animated underline or shine effect */
+.readMore::after {
+  content: "";
+  position: absolute;
+  left: -50%;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-25deg) translateX(0);
+  transition: transform 0.7s ease;
+}
+
+.readMore:hover::after {
+  transform: skewX(-25deg) translateX(50%);
+}
+
+/* Featured image inside PostCard */
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Image wrapper (keep previous) */
+.imageWrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  position: relative;
+  opacity: 0;
+  transform: scale(0.95) translateY(20px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* When visible, image pops in */
+.imageWrapper.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+/* Ensure image wrapper allows transform */
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.3s ease,
+    filter 0.5s ease;
+  transform-style: preserve-3d; /* enables subtle 3D transform */
+}
+
+/* Keep hover scale + floating effect */
+.card:hover .imageWrapper img {
+  transform: scale(1.05) translateY(-5px);
+  filter: brightness(1.1);
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}

@@ -1,0 +1,71 @@
+/* Footer container */
+.footer {
+  padding: 40px 20px;
+  background-color: var(--card-bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 50px;
+  box-shadow: 0 -4px 15px var(--card-shadow);
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
+}
+
+/* Footer links container */
+.links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Footer link */
+.link {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    transform 0.4s ease,
+    opacity 0.6s ease,
+    color 0.3s ease,
+    text-shadow 0.3s ease;
+}
+
+/* Scroll reveal */
+.link.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover shimmer + parallax */
+.link:hover {
+  transform: translateY(-2px);
+  color: var(--secondary);
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.link:hover::after {
+  left: 100%;
+}

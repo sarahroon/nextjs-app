@@ -1,0 +1,27 @@
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Main content layout */
+.mainContent {
+  display: flex;
+  gap: 30px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+/* Post grid (flex column for main content) */
+.postGrid {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 1;
+  min-width: 250px;
+}

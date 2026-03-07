@@ -1,0 +1,121 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Global variables */
+:root {
+  --bg: #f9f9f9;
+  --text: #333333;
+  --primary: #4caf50;
+  --secondary: #81c784;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.5s;
+}
+
+/* Dark mode */
+.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --primary: #81c784;
+  --secondary: #4caf50;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body,
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+/* Links and text transitions */
+a,
+h1,
+h2,
+h3,
+p,
+li,
+button {
+  transition:
+    color var(--transition-speed) ease,
+    background-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease,
+    border var(--transition-speed) ease;
+}
+
+body,
+html {
+  transition:
+    background-color var(--transition-speed) ease,
+    color var(--transition-speed) ease;
+}
+
+a,
+h1,
+h2,
+h3,
+p,
+li,
+button {
+  transition:
+    color var(--transition-speed) ease,
+    background-color var(--transition-speed) ease,
+    box-shadow var(--transition-speed) ease,
+    border var(--transition-speed) ease;
+}
+
+/* Default (light) colors */
+:root {
+  --bg: #f9f9f9;
+  --text: #333333;
+  --primary: #4caf50;
+  --secondary: #81c784;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode overrides */
+.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --primary: #81c784;
+  --secondary: #4caf50;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* Apply background and text */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}

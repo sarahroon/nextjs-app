@@ -1,0 +1,40 @@
+.header {
+  background: linear-gradient(90deg, #4caf50, #81c784);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav {
+  margin-top: 10px;
+}
+
+.nav a {
+  margin: 0 15px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #d4ffd4;
+}
+
+.toggleButton {
+  margin-left: 20px;
+  padding: 5px 15px;
+  background: white;
+  color: var(--primary);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+.toggleButton:hover {
+  background: var(--secondary);
+  color: white;
+}
