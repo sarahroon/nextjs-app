@@ -25,27 +25,23 @@ export async function POST(request) {
 }
 
 // GET: fetch comments for a post
+
 export async function GET(request) {
+  const { searchParams } = new URL(request.url);
+  const postId = searchParams.get("postId");
+
+  if (!postId) {
+    return Response.json([], { status: 200 }); // Return empty array
+  }
+
   try {
-    const { searchParams } = new URL(request.url);
-    const postId = searchParams.get("postId");
-
-    if (!postId)
-      return Response.json({ message: "Missing postId" }, { status: 400 });
-
     const result = await sql`
-      SELECT * FROM comments
-      WHERE post_id = ${postId}
-      ORDER BY created_at DESC
+      SELECT * FROM comments WHERE post_id = ${postId} ORDER BY created_at DESC
     `;
-
-    return Response.json(result.rows);
-  } catch (error) {
-    console.error("Failed to fetch comments:", error);
-    return Response.json(
-      { message: "Error fetching comments" },
-      { status: 500 },
-    );
+    return Response.json(result.rows ?? []); // Ensure an array
+  } catch (err) {
+    console.error(err);
+    return Response.json([], { status: 500 });
   }
 }
 
