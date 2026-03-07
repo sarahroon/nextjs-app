@@ -1,79 +1,51 @@
-import Head from "next/head";
-import Hero from "../components/Hero";
-import PostCard from "../components/PostCard";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
-import ThemeToggle from "../components/ThemeToggle";
-import styles from "../styles/Home.module.css";
-
+// pages/index.js
 export default function Home() {
-  // Sample posts
-  const posts = [
-    {
-      title: "Paragliding",
-      excerpt: "This is a blog post about paragliding.",
-      link: "#",
-      image: "/images/paragliding.jpg",
-    },
-    {
-      title: "Kayaking",
-      excerpt: "This is a blog post about kayaking.",
-      link: "#",
-      image: "/images/kayaking.jpg",
-    },
-    {
-      title: "Knitting",
-      excerpt: "This is a blog post about knitting.",
-      link: "#",
-      image: "/images/knitting.jpg",
-    },
-  ];
-
-  // Sidebar links
-  const sidebarLinks = [
-    { label: "Home", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "About", href: "#" },
-    { label: "Contact", href: "#" },
-  ];
-
   return (
-    <>
-      <Head>
-        <title>My Blog</title>
-        <meta name="description" content="Leisure Activities Blog" />
-      </Head>
+    <div style={{ padding: "40px", fontFamily: "sans-serif" }}>
+      <h1 style={{ textAlign: "center" }}>My Blog</h1>
 
-      <ThemeToggle />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "20px",
+          marginTop: "40px",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="/images/kayaking.jpg"
+            alt="Kayaking"
+            width={400}
+            height={300}
+            style={{ borderRadius: "12px", display: "block" }}
+          />
+          <h3>Kayaking</h3>
+        </div>
 
-      <div className={styles.container}>
-        <Hero />
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="/images/knitting.jpg"
+            alt="Knitting"
+            width={400}
+            height={300}
+            style={{ borderRadius: "12px", display: "block" }}
+          />
+          <h3>Knitting</h3>
+        </div>
 
-        <main className={styles.mainContent}>
-          <div className={styles.postGrid}>
-            {posts.map((post, idx) => (
-              <PostCard key={idx} index={idx} {...post} />
-            ))}
-          </div>
-
-          <aside className={styles.sidebar}>
-            <Sidebar links={sidebarLinks} />
-          </aside>
-        </main>
-
-        <Footer />
+        <div style={{ textAlign: "center" }}>
+          <img
+            src="/images/paragliding.jpg"
+            alt="Paragliding"
+            width={400}
+            height={300}
+            style={{ borderRadius: "12px", display: "block" }}
+          />
+          <h3>Paragliding</h3>
+        </div>
       </div>
-    </>
-  );
-}
-
-export default function Home() {
-  return (
-    <div>
-      <h1>My Blog</h1>
-      <img src="/images/kayaking.jpg" alt="Kayaking" width={400} />
-      <img src="/images/knitting.jpg" alt="Knitting" width={400} />
-      <img src="/images/paragliding.jpg" alt="Paragliding" width={400} />
     </div>
   );
 }
