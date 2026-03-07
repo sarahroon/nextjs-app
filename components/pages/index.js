@@ -13,19 +13,19 @@ export default function Home() {
       title: "Paragliding",
       excerpt: "This is a blog post about paragliding.",
       link: "#",
-      image: "/images/post1.jpg",
+      image: "/images/paragliding.jpg",
     },
     {
       title: "Kayaking",
       excerpt: "This is a blog post about kayaking.",
       link: "#",
-      image: "/images/post2.jpg",
+      image: "/images/kayaking.jpg",
     },
     {
       title: "Knitting",
       excerpt: "This is a blog post about knitting.",
       link: "#",
-      image: "/images/post3.jpg",
+      image: "/images/knitting.jpg",
     },
   ];
 
