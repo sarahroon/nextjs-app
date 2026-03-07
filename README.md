@@ -1,7 +1,6 @@
 Week 8 Assignment: Creating a next.js Website Blog with Posts Expressing Interest in Activities:
 
--	Website domain link: [
-](https://nextjs-app-beta-beige.vercel.app/)
+-	Website domain link: https://nextjs-app-beta-beige.vercel.app/
 
 All Requirements Met:
 •	Users can view all posts with options to sort them in ascending or descending order so that they can easily find content based on their preferences using the options Newest first or Oldest first in the drop-down button next to “Sort posts:” 
