@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function PostPage() {
@@ -8,15 +8,13 @@ export default function PostPage() {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
 
-  // Fetch post & comments once router is ready
   useEffect(() => {
-    if (!router.isReady || !postid) return;
+    if (!postid) return;
 
     const fetchPost = async () => {
       const res = await fetch("/api/posts");
       const data = await res.json();
-      const found = data.find((p) => p.id === postid);
-      setPost(found);
+      setPost(data.find((p) => p.id === parseInt(postid)));
     };
 
     const fetchComments = async () => {
@@ -27,15 +25,17 @@ export default function PostPage() {
 
     fetchPost();
     fetchComments();
-  }, [router.isReady, postid]);
+  }, [postid]);
 
   const handleAddComment = async () => {
     if (!newComment) return;
+
     const res = await fetch("/api/comments", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ postId: postid, text: newComment }),
     });
+
     if (res.ok) {
       const saved = await res.json();
       setComments((prev) => [...prev, saved]);
@@ -46,7 +46,7 @@ export default function PostPage() {
   if (!post) return <p>Loading post...</p>;
 
   return (
-    <div style={{ maxWidth: "600px", margin: "0 auto", padding: "2rem" }}>
+    <div style={{ maxWidth: 600, margin: "0 auto", padding: "2rem" }}>
       <h1>{post.title}</h1>
       <p>{post.content}</p>
 
@@ -57,24 +57,12 @@ export default function PostPage() {
         ))}
       </ul>
 
-      <div style={{ marginTop: "1rem" }}>
-        <input
-          value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
-          placeholder="Write a comment..."
-          style={{ width: "80%", padding: "0.5rem" }}
-        />
-        <button
-          onClick={handleAddComment}
-          style={{
-            padding: "0.5rem 1rem",
-            marginLeft: "0.5rem",
-            cursor: "pointer",
-          }}
-        >
-          Add Comment
-        </button>
-      </div>
+      <input
+        value={newComment}
+        onChange={(e) => setNewComment(e.target.value)}
+        placeholder="Write a comment..."
+      />
+      <button onClick={handleAddComment}>Add Comment</button>
     </div>
   );
 }

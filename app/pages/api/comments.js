@@ -1,29 +1,32 @@
-let comments = [
-  { postId: "1", id: "c1", text: "Great post!" },
-  { postId: "1", id: "c2", text: "Thanks for sharing." },
-];
+import { supabase } from "../../lib/supabaseClient";
 
-export default function handler(req, res) {
-  if (req.method === "POST") {
-    const { postId, text } = req.body;
-    if (!postId || !text) {
-      return res.status(400).json({ error: "Missing postId or text" });
-    }
-
-    const newComment = { postId, id: Date.now().toString(), text };
-    comments.push(newComment);
-    return res.status(201).json(newComment);
-  }
-
+export default async function handler(req, res) {
   if (req.method === "GET") {
     const { postId } = req.query;
-    if (!postId) {
-      return res.status(400).json({ error: "Missing postId" });
-    }
+    if (!postId) return res.status(400).json({ error: "Missing postId" });
 
-    const filtered = comments.filter((c) => c.postId === postId);
-    return res.status(200).json(filtered);
+    const { data, error } = await supabase
+      .from("comments")
+      .select("*")
+      .eq("post_id", postId)
+      .order("inserted_at", { ascending: true });
+
+    if (error) return res.status(500).json({ error: error.message });
+    return res.status(200).json(data);
   }
 
-  res.status(405).end(); // Method not allowed
+  if (req.method === "POST") {
+    const { postId, text } = req.body;
+    if (!postId || !text)
+      return res.status(400).json({ error: "Missing postId or text" });
+
+    const { data, error } = await supabase
+      .from("comments")
+      .insert([{ post_id: postId, text }])
+      .select();
+    if (error) return res.status(500).json({ error: error.message });
+    return res.status(201).json(data[0]);
+  }
+
+  res.status(405).end();
 }

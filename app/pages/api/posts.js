@@ -1,23 +1,27 @@
-let posts = [
-  { id: "1", title: "First Post", content: "Hello World!" },
-  { id: "2", title: "Second Post", content: "Another post" },
-];
+import { supabase } from "../../lib/supabaseClient";
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "GET") {
-    return res.status(200).json(posts);
+    const { data, error } = await supabase
+      .from("posts")
+      .select("*")
+      .order("inserted_at", { ascending: false });
+    if (error) return res.status(500).json({ error: error.message });
+    return res.status(200).json(data);
   }
 
   if (req.method === "POST") {
     const { title, content } = req.body;
-    if (!title || !content) {
+    if (!title || !content)
       return res.status(400).json({ error: "Missing title or content" });
-    }
 
-    const newPost = { id: Date.now().toString(), title, content };
-    posts.push(newPost);
-    return res.status(201).json(newPost);
+    const { data, error } = await supabase
+      .from("posts")
+      .insert([{ title, content }])
+      .select();
+    if (error) return res.status(500).json({ error: error.message });
+    return res.status(201).json(data[0]);
   }
 
-  res.status(405).end(); // Method not allowed
+  res.status(405).end();
 }
