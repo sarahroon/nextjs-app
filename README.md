@@ -15,5 +15,3 @@ All Requirements Met:
 Stretch goals:
 -	I added a scrollbar for my website page so users can easily navigate the page.
 -	Users have the ability to make the comments box larger to write more text using the maximiser function in the bottom right corner of the comment box.
-
-<img width="487" height="701" alt="image" src="https://github.com/user-attachments/assets/8aaab52c-d4db-45cf-b630-6ec219d64e62" />
