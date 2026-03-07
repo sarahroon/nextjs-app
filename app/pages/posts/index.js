@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import ImageGallery from "../components/ImageGallery";
 
 export default function PostsPage() {
   const [posts, setPosts] = useState([]);
@@ -26,6 +27,17 @@ export default function PostsPage() {
           </li>
         ))}
       </ul>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <div>
+      <h1>My Blog</h1>
+
+      <ImageGallery />
+
     </div>
   );
 }
