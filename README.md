@@ -13,3 +13,4 @@ All Requirements Met:
 Stretch goals:
 -	I added a scrollbar for my website page so users can easily navigate the page.
 -	Users have the ability to make the comments box larger to write more text using the maximiser function in the bottom right corner of the comment box.
+- Website fits mobile phone, tablet and desktop small and big screens using media queries.
