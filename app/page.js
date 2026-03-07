@@ -28,12 +28,12 @@ export default function Home() {
     },
   ];
 
-  const sortedPosts = [...posts].sort((a, b) => {
-    return sortOrder === "asc" ? a.post_id - b.post_id : b.post_id - a.post_id;
-  });
+  const sortedPosts = [...posts].sort((a, b) =>
+    sortOrder === "asc" ? a.post_id - b.post_id : b.post_id - a.post_id,
+  );
 
   return (
-    <div style={{ padding: "1rem", fontFamily: "sans-serif" }}>
+    <main style={{ padding: "2rem", fontFamily: "sans-serif" }}>
       <h1>Blog Posts Expressing Interest in Activities</h1>
 
       <label>Sort posts: </label>
@@ -44,46 +44,27 @@ export default function Home() {
 
       <div id="posts" style={{ marginTop: "2rem" }}>
         {sortedPosts.map((post) => (
-          <div key={post.post_id} className="post" style={{ margin: "2rem 0" }}>
+          <div key={post.post_id} style={{ marginBottom: "2rem" }}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
-
-            {/* Comment Form */}
             <CommentForm postId={post.post_id} />
-
-            {/* Comments List */}
             <CommentsList postId={post.post_id} />
-
-            <hr style={{ marginTop: "2rem" }} />
+            <hr />
           </div>
         ))}
       </div>
-    </div>
-  );
-}
 
-export default function Home() {
-  return (
-    <main className="container">
-      <h1 className="title">Blog Posts</h1>
+      <section>
+        <p className="orangeText">
+          This website shows blog posts about different types of leisure
+          activities.
+        </p>
 
-      <p className="orangeText">
-        This website shows blog posts about different types of leisure activities.
-      </p>
-
-      <p className="purpleText">
-        Users can submit their information to express interest in any of the leisure activities displayed in the blog posts.
-      </p>
-
-      <h2 className="title">Blog Posts</h2>
-
-      <p className="subtitle">
-        This website shows blog posts about different types of leisure activities.
-      </p>
-
-      <p className="highlight">
-        Users can submit their information to express interest in any of the leisure activities displayed in the blog posts.
-      </p>
+        <p className="purpleText">
+          Users can submit their information to express interest in any of the
+          leisure activities displayed in the blog posts.
+        </p>
+      </section>
     </main>
   );
 }
