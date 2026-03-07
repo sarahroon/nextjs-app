@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { images } from "../data/images";
 import styles from "./ImageGallery.module.css";
 
 export default function ImageGallery() {
@@ -25,3 +26,5 @@ export default function ImageGallery() {
     </div>
   );
 }
+
+export default function images() {}
