@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f9f9f9;
+  --foreground: #333;
+  --primary: #00008b;
+  --secondary: #8b0000;
+  --accent-blush: #ff8c00;
+  --accent-strawberry: #fc5a8d;
+  --card-bg: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --font-sans: "Geist Sans", system-ui, sans-serif;
+  --font-mono: "Geist Mono", monospace;
+}
+
+body.dark {
+  --background: #c71585;
+  --foreground: #f1f1f1;
+  --primary: #00008b;
+  --secondary: #301934;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--primary);
+  color: var(--accent-blush);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0.5rem 0;
+}
+
+.container {
+  padding: 50px;
+}
+
+.title {
+  color: #4b0082;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--accent-blush);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.highlight {
+  color: #b39eb5;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.pastelgreenText {
+  color: #77dd77;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.pastelorangeText {
+  color: #ffd8b1;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+}
+
+.babyblueText {
+  color: #89cff0;
+  font-weight: bold;
+  font-size: 22px;
+}

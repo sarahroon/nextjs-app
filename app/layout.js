@@ -1,12 +1,13 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 
-export const metadata = {
-  title: "My Blog",
-  description: "Blog posts about leisure activities",
-};
+const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
-const poppins = Poppins({ subsets: ["latin"], weight: ["400", "700"] });
+export const metadata = {
+  title: "Blog Posts",
+  description:
+    "Users can submit comments to express interest in different leisure activities",
+};
 
 export default function RootLayout({ children }) {
   return (

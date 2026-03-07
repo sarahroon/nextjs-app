@@ -1,17 +1,15 @@
-export async function GET() {
+// app/api/comments/route.js
+
+export async function GET(request) {
+  // Returns an empty array for all posts
   return new Response(JSON.stringify([]), {
     headers: { "Content-Type": "application/json" },
   });
 }
 
-export async function POST() {
-  return new Response(JSON.stringify({ message: "Comments disabled" }), {
-    headers: { "Content-Type": "application/json" },
-  });
-}
-
-export async function DELETE() {
-  return new Response(JSON.stringify({ message: "Comments disabled" }), {
+export async function POST(request) {
+  // Simple stub response
+  return new Response(JSON.stringify({ message: "Comment received (stub)" }), {
     headers: { "Content-Type": "application/json" },
   });
 }

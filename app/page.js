@@ -1,3 +1,4 @@
+// app/page.js
 "use client";
 
 import { useState } from "react";
@@ -53,18 +54,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-
-      <section>
-        <p className="orangeText">
-          This website shows blog posts about different types of leisure
-          activities.
-        </p>
-
-        <p className="purpleText">
-          Users can submit their information to express interest in any of the
-          leisure activities displayed in the blog posts.
-        </p>
-      </section>
     </main>
   );
 }
