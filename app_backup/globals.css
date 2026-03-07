@@ -21,14 +21,22 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-  transition:
-    background 0.3s,
-    color 0.3s;
+.greenText {
+  color: green;
+  font-style: italic;
+  font-size: 20px;
+}
+
+.purpleText {
+  color: purple;
+  font-family: "Courier New", monospace;
+  font-size: 18px;
+}
+
+.orangeText {
+  color: #ff6600;
+  font-weight: bold;
+  font-size: 22px;
 }
 
 a {
@@ -55,8 +63,8 @@ img {
 body.dark {
   --bg: #121212;
   --text: #f1f1f1;
-  --primary: #81c784;
-  --secondary: #66bb6a;
+  --primary: #ff1493;
+  --secondary: #ffb7d5;
   --card-bg: #1e1e1e;
   --card-shadow: rgba(0, 0, 0, 0.5);
 }
@@ -67,14 +75,6 @@ html {
   scroll-padding-top: 80px; /* optional: keeps fixed headers from overlapping content */
 }
 
-/* Optional: smoother scrolling for modern browsers */
-body {
-  transition:
-    background 0.3s,
-    color 0.3s;
-  overscroll-behavior: smooth;
-}
-
 /* Enhance anchor link navigation smoothness */
 a {
   scroll-behavior: smooth;
@@ -83,4 +83,31 @@ a {
 /* Optional: apply subtle easing for all scrollable elements */
 * {
   scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.container {
+  padding: 50px;
+}
+
+.title {
+  color: #ff00ff;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.subtitle {
+  color: #ffc0cb;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.highlight {
+  color: #ff6ec7;
+  font-size: 20px;
+  font-weight: 600;
 }

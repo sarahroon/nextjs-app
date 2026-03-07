@@ -61,3 +61,29 @@ export default function Home() {
     </div>
   );
 }
+
+export default function Home() {
+  return (
+    <main className="container">
+      <h1 className="title">Blog Posts</h1>
+
+      <p className="orangeText">
+        This website shows blog posts about different types of leisure activities.
+      </p>
+
+      <p className="purpleText">
+        Users can submit their information to express interest in any of the leisure activities displayed in the blog posts.
+      </p>
+
+      <h2 className="title">Blog Posts</h2>
+
+      <p className="subtitle">
+        This website shows blog posts about different types of leisure activities.
+      </p>
+
+      <p className="highlight">
+        Users can submit their information to express interest in any of the leisure activities displayed in the blog posts.
+      </p>
+    </main>
+  );
+}
