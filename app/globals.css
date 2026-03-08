@@ -5,22 +5,22 @@
 @tailwind utilities;
 
 :root {
-  --background: #5c1320;
+  --background: #ff69b4;
   --foreground: #f4c7d0;
-  --primary: #8b2d3b;
-  --secondary: #7a1c3b;
+  --primary: #f0bdc3;
+  --secondary: #ff4c9a;
   --accent-blush: #ff91a4;
-  --card-bg: #631b2d;
+  --card-bg: #ff85c1;
   --card-shadow: 0 4px 10px rgba(139, 45, 59, 0.3);
   --font-sans: "Geist Sans", system-ui, sans-serif;
   --font-mono: "Geist Mono", monospace;
 }
 
 body.dark {
-  --background: #7d1f41;
+  --background: #ff69b4;
   --foreground: #f0bdc3;
-  --primary: #70193d;
-  --secondary: #7d1f41;
+  --primary: #ff4c9a;
+  --secondary: #ff85c1;
   --card-bg: #1e1e1e;
   --card-shadow: rgba(0, 0, 0, 0.5);
 }
@@ -71,7 +71,7 @@ h3 {
 }
 
 .title {
-  color: #9c1b30;
+  color: #ff1493;
   font-size: 42px;
   font-weight: 700;
 }
