@@ -1,11 +1,4 @@
 import "./globals.css";
-import { Bitcount_Grid_Double_Ink } from "next/font/google";
-
-const bitcount = Bitcount_Grid_Double_Ink({
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata = {
   title: "Blog Posts",
@@ -16,7 +9,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={Bitcount_Grid_Double_Ink.className}>{children}</body>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double+Ink&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="bitcount">{children}</body>
     </html>
   );
 }
