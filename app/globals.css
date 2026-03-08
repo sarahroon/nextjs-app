@@ -5,11 +5,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #ff69b4;
-  --foreground: #f4c7d0;
-  --primary: #f0bdc3;
-  --secondary: #ff4c9a;
-  --accent-blush: #ff91a4;
+  --background: #6495ed;
+  --foreground: #ff1493;
+  --primary: #483d8b;
+  --secondary: #b57edc;
+  --accent-blush: #ff69b4;
   --card-bg: #ff85c1;
   --card-shadow: 0 4px 10px rgba(139, 45, 59, 0.3);
   --font-sans: "Geist Sans", system-ui, sans-serif;
@@ -17,10 +17,10 @@
 }
 
 body.dark {
-  --background: #ff69b4;
-  --foreground: #f0bdc3;
-  --primary: #ff4c9a;
-  --secondary: #ff85c1;
+  --background: #191970;
+  --foreground: #ff1493;
+  --primary: #007bff;
+  --secondary: #ffc0cb;
   --card-bg: #1e1e1e;
   --card-shadow: rgba(0, 0, 0, 0.5);
 }
