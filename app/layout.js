@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Bitcount_Prop_Double_Ink } from "next/font/google";
+import { Bitcount_Grid_Double_Ink } from "next/font/google";
 
-const bitcount = Bitcount_Prop_Double_Ink({
+const bitcount = Bitcount_Grid_Double_Ink({
   weight: "400",
   subsets: ["latin"],
   display: "swap",
