@@ -15,3 +15,4 @@ Stretch goals:
 -	Users have the ability to make the comments box larger to write more text using the maximiser function in the bottom right corner of the comment box.
 - Website fits mobile phone, tablet and desktop small and big screens using media queries.
 - I styled the headers and title to have a different font to the rest of the text on the screen using Google Font.
+- I styled darker text against a lighter background so users can easily read the content.
