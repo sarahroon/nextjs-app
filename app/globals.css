@@ -6,10 +6,10 @@
 
 :root {
   --background: #f9f9f9;
-  --foreground: #333;
-  --primary: #00008b;
+  --foreground: #5c1320;
+  --primary: #7d1f41;
   --secondary: #8b0000;
-  --accent-blush: #ff8c00;
+  --accent-blush: #631b2d;
   --accent-strawberry: #fc5a8d;
   --card-bg: #fff;
   --card-shadow: rgba(0, 0, 0, 0.1);
@@ -18,10 +18,10 @@
 }
 
 body.dark {
-  --background: #c71585;
-  --foreground: #f1f1f1;
-  --primary: #00008b;
-  --secondary: #301934;
+  --background: #7d1f41;
+  --foreground: #991f36;
+  --primary: #70193d;
+  --secondary: #7d1f41;
   --card-bg: #1e1e1e;
   --card-shadow: rgba(0, 0, 0, 0.5);
 }
@@ -72,7 +72,7 @@ h3 {
 }
 
 .title {
-  color: #4b0082;
+  color: #9c1b30;
   font-size: 42px;
   font-weight: 700;
 }
@@ -84,25 +84,7 @@ h3 {
 }
 
 .highlight {
-  color: #b39eb5;
+  color: #631b2d;
   font-size: 20px;
   font-weight: 600;
-}
-
-.pastelgreenText {
-  color: #77dd77;
-  font-style: italic;
-  font-size: 20px;
-}
-
-.pastelorangeText {
-  color: #ffd8b1;
-  font-family: "Courier New", monospace;
-  font-size: 18px;
-}
-
-.babyblueText {
-  color: #89cff0;
-  font-weight: bold;
-  font-size: 22px;
 }
