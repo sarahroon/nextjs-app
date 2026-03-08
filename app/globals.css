@@ -44,7 +44,8 @@ html {
   scroll-padding-top: 80px;
 }
 
-body {
+body,
+.bitcount {
   font-family: "Bitcount Grid Double Ink", sans-serif;
   background-color: var(--primary);
   color: var(--accent-blush);
@@ -62,9 +63,8 @@ img {
 
 h1,
 h2,
-h3,
-p {
-  margin: 0.5rem 0;
+h3 {
+  font-family: "Bitcount Grid Double Ink", sans-serif;
 }
 
 .container {
