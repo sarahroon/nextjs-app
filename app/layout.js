@@ -1,7 +1,11 @@
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Bitcount_Prop_Double_Ink } from "next/font/google";
 
-const poppins = Poppins({ weight: "400", subsets: ["latin"] });
+const bitcount = Bitcount_Prop_Double_Ink({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata = {
   title: "Blog Posts",
@@ -12,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={poppins.className}>{children}</body>
+      <body className={bitcount.className}>{children}</body>
     </html>
   );
 }
