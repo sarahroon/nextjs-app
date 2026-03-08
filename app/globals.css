@@ -45,7 +45,7 @@ html {
 }
 
 body {
-  font-family: var(--font-sans);
+  font-family: "Bitcount Grid Double Ink";
   background-color: var(--primary);
   color: var(--accent-blush);
 }

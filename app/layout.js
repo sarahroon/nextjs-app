@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={bitcount.className}>{children}</body>
+      <body className={Bitcount_Grid_Double_Ink.className}>{children}</body>
     </html>
   );
 }
